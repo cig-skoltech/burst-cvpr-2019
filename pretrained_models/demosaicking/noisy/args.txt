@@ -1,0 +1,1 @@
+Namespace(batch_size=10, clip=0.25, depth=5, epochs=200, init=True, k1=5, k2=5, lr=0.003, max_iter=10, noise_estimation=True, num_gpus=1, save_images=True, save_path='experiments/experiment_MSR_noisy_augmented/', use_gpu=True)

@@ -1,0 +1,1 @@
+Namespace(batch_size=10, clip=0.25, depth=5, epochs=300, init=True, k1=5, k2=5, lr=0.01, max_iter=10, noise_estimation=False, num_gpus=1, save_images=True, save_path='experiments/experiment_MSR_noisefree_evang_mel1grad_new_align_v2/', use_gpu=True)

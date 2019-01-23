@@ -1,0 +1,1 @@
+Namespace(batch_size=32, clip=0.25, depth=5, epochs=400, init=True, k1=5, k2=5, lr=0.003, max_iter=10, noise_estimation=True, num_gpus=1, save_images=True, save_path='/home/filippos/burst_denoising/experiments/experiment_WD_multiple_stds_l1only_v2/', use_gpu=True)
