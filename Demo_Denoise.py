@@ -27,12 +27,7 @@ import scipy.misc
 import utilities
 from ResDNet import *
 from MMNet import *
-get_ipython().run_line_magic('matplotlib', 'inline')
 
-
-# # Define HyperParameters
-
-# In[3]:
 
 
 demo_path = 'misc/demo.png'
@@ -40,13 +35,13 @@ demo_img = io.imread(demo_path)
 
 args_noise_estimation = True # wheter to estimate noise or not
 args_init = True # wheter to initialize the input with bilinear
-args_use_gpu = True 
+args_use_gpu = True
 args_block_size = (512,512)
 args_model = 'pretrained_models/denoising/' # model path
 # Define folder with RAW images
 args_output_folder = 'output/' # save results to folder
 args_type = '.png' # image type to save as
-   
+
 reference = 3 # Index of reference frame using 0-based numbering
 tmp_path = 'tmp/'
 files = glob.glob(tmp_path+'*.pkl')
@@ -78,7 +73,7 @@ def calculate_affine_matrices(burst):
     warp_matrices = np.zeros((burst.shape[0],2,3))
     warp_matrices[-1] = np.eye(2,3) # identity for reference frame
     for i, b in enumerate(burst[:-1]):
-        warp_matrix = calculate_ECC((burst[-1]/255).astype(np.float32),(b/255).astype(np.float32), 2) 
+        warp_matrix = calculate_ECC((burst[-1]/255).astype(np.float32),(b/255).astype(np.float32), 2)
         if warp_matrix is None:
             return None
 
@@ -163,7 +158,7 @@ def random_warp(img, burst_size):
 
 std = 25  # Standard deviation of noise to generate noisy frames
 num_frames = 8  # number of frames
-use_oracle_warp = True  
+use_oracle_warp = True
 
 
 # In[7]:
@@ -172,8 +167,8 @@ use_oracle_warp = True
 image_gt = torch.Tensor(demo_img.transpose(2,0,1)[None])
 batch,C, H, W = image_gt.shape
 
-# pad image to size 
-pad_size = 512 
+# pad image to size
+pad_size = 512
 image_gt = F.pad(image_gt,(0,pad_size - W, 0, pad_size - H),mode='reflect')
 
 # create noisy burst
@@ -247,4 +242,3 @@ def plot_batch_burst(burst):
         plt.axis('off')
 
 plot_batch_burst(burst_T)
-
