@@ -178,8 +178,10 @@ class Burst_Denoise(Problem):
                 x.append(F.grid_sample(y[:, i], grid[:, i], padding_mode='zeros')[:, None])
             return torch.cat(x, dim=1)
         else:
-            return F.grid_sample(y, grid[:, 0], padding_mode='zeros')
-
+            if y.ndimension() == 5 and  y.shape[1] == 1:  # case of number of frames is 1
+                return y
+            else:
+                return F.grid_sample(y, grid[:, 0], padding_mode='zeros')
     def get_warped_burst(self, y, grid):
         return self.warp(y, grid)
 
@@ -355,7 +357,10 @@ class Burst_Demosaick_Denoise(Problem):
                     x.append(F.grid_sample(y[:, i], grid[:, i], padding_mode='zeros')[:, None])
             return torch.cat(x, dim=1)
         else:
-            return F.grid_sample(y, grid[:, 0], padding_mode='zeros')
+            if y.ndimension() == 5 and  y.shape[1] == 1:  # case of number of frames is 1
+                return y
+            else:
+                return F.grid_sample(y, grid[:, 0], padding_mode='zeros')
 
     def get_warped_burst(self, y, grid, compress=True):
         if compress:
