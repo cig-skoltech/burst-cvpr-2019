@@ -1,4 +1,4 @@
-# Iterative Residual CNNs for Burst Photography Applications (CVPR 2019 submission)
+# Iterative Residual CNNs for Burst Photography Applications (CVPR 2019)
 
 ##### Project Website: https://fkokkinos.github.io/deep_burst/
 
