@@ -62,7 +62,7 @@ optional arguments:
 ### Dataset:
 
 ---
-TBD
+Download test files from https://gitlab.com/filippakos/burst-cvpr-2019-test-files . Train and validation set used for training of the models are not uploaded due to size restrictions. Send an email to filippos.kokkinos[at]skoltech.ru to request the training sets.  
 
 Each sample returned from a dataloader should be a JSON struct with the following keys:
 1. 'image_gt': groundtruth image with shape [C,H,W]
@@ -73,9 +73,9 @@ Each sample returned from a dataloader should be a JSON struct with the followin
 
 ---
 Bib:
->     @article{1811.12197,
->              Author = {Filippos Kokkinos and Stamatios Lefkimmiatis},
->              Title = {Iterative Residual CNNs for Burst Photography Applications},
->              Year = {2018},
->              Eprint = {arXiv:1811.12197}}
-
+>     @InProceedings{Kokkinos_2019_CVPR,
+>               author = {Filippos, Kokkinos and Stamatios, Lefkimmiatis},
+>               title = {Iterative Residual CNNs for Burst Photography Applications},
+>               booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+>               month = {June},
+>               year = {2019}}
